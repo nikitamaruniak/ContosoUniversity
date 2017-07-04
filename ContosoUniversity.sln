@@ -9,7 +9,22 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{BA3246
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{2CA3FB41-FF35-4226-AD41-72F2338561C5}"
 	ProjectSection(SolutionItems) = preProject
+		Build\nuget.exe = Build\nuget.exe
 		Build\SetVersion.ps1 = Build\SetVersion.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deploy", "Deploy", "{D6FEBF6C-34F5-4D0A-B0B2-D4E85159C0A3}"
+	ProjectSection(SolutionItems) = preProject
+		Deploy\Deploy.ps1 = Deploy\Deploy.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EntityFramework", "EntityFramework", "{10C100FD-7DCF-404E-AEA1-535A3A9C9817}"
+	ProjectSection(SolutionItems) = preProject
+		Deploy\EntityFramework\EntityFramework.dll = Deploy\EntityFramework\EntityFramework.dll
+		Deploy\EntityFramework\EntityFramework.SqlServer.dll = Deploy\EntityFramework\EntityFramework.SqlServer.dll
+		Deploy\EntityFramework\EntityFramework.SqlServer.xml = Deploy\EntityFramework\EntityFramework.SqlServer.xml
+		Deploy\EntityFramework\EntityFramework.xml = Deploy\EntityFramework\EntityFramework.xml
+		Deploy\EntityFramework\migrate.exe = Deploy\EntityFramework\migrate.exe
 	EndProjectSection
 EndProject
 Global
@@ -25,5 +40,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{10C100FD-7DCF-404E-AEA1-535A3A9C9817} = {D6FEBF6C-34F5-4D0A-B0B2-D4E85159C0A3}
 	EndGlobalSection
 EndGlobal
