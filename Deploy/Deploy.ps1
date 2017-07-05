@@ -6,6 +6,8 @@ Param(
 	[String]$PackagePath
 )
 
+$ErrorActionPreference="Stop"
+
 function RunEntityFrameworkMigration
 {
     Write-Verbose "EntityFramework database migration started..."
