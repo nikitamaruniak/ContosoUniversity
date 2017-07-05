@@ -45,6 +45,27 @@ function Local(
     Join-Path $PSScriptRoot $FileName
 }
 
+function DeployWebsiteite
+{
+    Import-Module WebAdministration
+
+    $siteName = "ContosoUniversity"
+
+    Write-Verbose "Stopping Website $siteName..."
+    Get-WebSite $siteName | Stop-WebSite -Verbose
+
+    $sitePath = "C:\ContosoApplication"
+    Write-Verbose "Cleaning Website folder $sitePath..."
+    Remove-Item -Recurse $($sitePath +"\*") -Verbose
+
+    Write-Verbose "Copying new files from $PackagePath to $sitePath..."
+    Copy-Item -Recurse $($PackagePath + '\*') -Destination $sitePath -Verbose
+
+    Write-Verbose "Running Website $siteName..."
+    Start-WebSite $siteName -Verbose
+}
+
+
 $FullPackagePath = $(Get-Item $PackagePath).FullName
 
 Write-Verbose "Deployment started..."
@@ -52,3 +73,4 @@ Write-Verbose $("Build number: {0}" -f $BuildNumber)
 Write-Verbose $("Package path: {0}" -f $FullPackagePath)
 
 RunEntityFrameworkMigration
+DeployWebsite
