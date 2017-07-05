@@ -45,7 +45,7 @@ function Local(
     Join-Path $PSScriptRoot $FileName
 }
 
-function DeployWebsiteite
+function DeployWebsite
 {
     Import-Module WebAdministration
 
@@ -58,7 +58,7 @@ function DeployWebsiteite
     Write-Verbose "Cleaning Website folder $sitePath..."
     Remove-Item -Recurse $($sitePath +"\*") -Verbose
 
-    Write-Verbose "Copying new files from $PackagePath to $sitePath..."
+    Write-Verbose "Copying new version of Website from $PackagePath to $sitePath..."
     Copy-Item -Recurse $($PackagePath + '\*') -Destination $sitePath -Verbose
 
     Write-Verbose "Running Website $siteName..."
